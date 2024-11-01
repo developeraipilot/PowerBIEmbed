@@ -29,6 +29,7 @@
             display: block;
             padding: 10px 20px;
             margin: 5px 0;
+            cursor: pointer;
         }
         .sidebar a:hover {
             background-color: #575757;
@@ -46,21 +47,33 @@
             border: none;
         }
     </style>
+    <script>
+        // JavaScript function to change the iframe source based on the selected page
+        function loadReportPage(pageName) {
+            const iframe = document.getElementById('reportFrame');
+            iframe.src = `https://app.powerbi.com/reportEmbed?reportId=97802a46-efe5-42c9-8a82-dcaf3109afbc&autoAuth=true&ctid=230dd983-ac61-4aa3-9fde-18c16e6ba5e1&pageName=${pageName}`;
+        }
+    </script>
 </head>
 <body>
 
     <!-- Sidebar for page navigation -->
     <div class="sidebar">
         <h2>Report Pages</h2>
-        <a href="https://app.powerbi.com/reportEmbed?reportId=97802a46-efe5-42c9-8a82-dcaf3109afbc&autoAuth=true&ctid=230dd983-ac61-4aa3-9fde-18c16e6ba5e1&pageName=ReportSection1" target="reportFrame">Page 1</a>
-        <a href="https://app.powerbi.com/reportEmbed?reportId=97802a46-efe5-42c9-8a82-dcaf3109afbc&autoAuth=true&ctid=230dd983-ac61-4aa3-9fde-18c16e6ba5e1&pageName=ReportSection2" target="reportFrame">Page 2</a>
-        <a href="https://app.powerbi.com/reportEmbed?reportId=97802a46-efe5-42c9-8a82-dcaf3109afbc&autoAuth=true&ctid=230dd983-ac61-4aa3-9fde-18c16e6ba5e1&pageName=ReportSection3" target="reportFrame">Page 3</a>
+        <a onclick="loadReportPage('ReportSection1')">Portfolio Overview</a>
+        <a onclick="loadReportPage('ReportSection2')">Stock Overview</a>
+        <a onclick="loadReportPage('ReportSection3')">Table</a>
+        <a onclick="loadReportPage('ReportSection4')">PowerApps</a>
+        <a onclick="loadReportPage('ReportSection5')">TradingView Charts</a>
+        <a onclick="loadReportPage('ReportSection6')">Page 1</a>
+        <a onclick="loadReportPage('ReportSection7')">Page 2</a>
+        <a onclick="loadReportPage('ReportSection8')">Page 3</a>
     </div>
 
     <!-- Content section for iframe -->
     <div class="content">
         <!-- Power BI report iframe -->
-        <iframe name="reportFrame" title="DutchYard_MVP - NEW" src="https://app.powerbi.com/reportEmbed?reportId=97802a46-efe5-42c9-8a82-dcaf3109afbc&autoAuth=true&ctid=230dd983-ac61-4aa3-9fde-18c16e6ba5e1&pageName=ReportSection1" allowFullScreen="true"></iframe>
+        <iframe id="reportFrame" title="Power BI Report" src="https://app.powerbi.com/reportEmbed?reportId=97802a46-efe5-42c9-8a82-dcaf3109afbc&autoAuth=true&ctid=230dd983-ac61-4aa3-9fde-18c16e6ba5e1&pageName=ReportSection1" allowFullScreen="true"></iframe>
     </div>
 
 </body>
